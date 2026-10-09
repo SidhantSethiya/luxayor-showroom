@@ -46,7 +46,7 @@ const st=document.getElementById('stage'),br=document.getElementById('brand');
 const els=[],rows=[];
 S.forEach((s,i)=>{const d=document.createElement('div');d.className='slide'+(s.t=='grp'?' grp':'')+(s.cov?' cov':'');
  if(s.t=='card'){d.innerHTML='<div class="card">'+s.html+'</div>';d.querySelectorAll('img.lg').forEach(x=>x.src=LOGO);rows.push(null)}
- else{d.innerHTML='<div class="bgl" style="background-image:url('+s.bg+')"></div><div class="row">'+s.k.map(f=>'<img data-src="images/'+f+'" alt="">').join('')+'</div>';rows.push(d.querySelector('.row'))}
+ else{d.innerHTML='<div class="bgl" style="background-image:url('+s.bg+')"></div><div class="row">'+s.k.map(f=>'<img data-src="'+f+'" alt="">').join('')+'</div>';rows.push(d.querySelector('.row'))}
  st.appendChild(d);els.push(d)});
 function layout(){const vw=innerWidth,vh=innerHeight;S.forEach((s,i)=>{if(s.t=='card')return;const im=rows[i].children;
  if(s.cov)return;if(s.t=='full'){const r=s.r[0],h=Math.min(vh,vw/r);im[0].style.height=h+'px';im[0].style.width=(h*r)+'px'}
